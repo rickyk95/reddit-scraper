@@ -30,9 +30,11 @@
                         console.log(result['link']);
                         resultsContainer.textContent+=result['link'] + '\n';
                 })
-            }else{
-                createNewRequest();
             }
+                if(this.status === 503){
+                        console.log('I got a 503');
+                        createNewRequest();
+                }
         }
         }
         createNewRequest()
