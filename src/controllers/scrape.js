@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 async function searchThreads(url){
     console.log('Calling searchThreads');
-    const browser = await puppeteer.launch({headless:true});
+    const browser = await puppeteer.launch({headless:true,args:['--no-sandbox']});
     const page = await browser.newPage();
     await page.goto(url);
     console.log('Just visited URL');
