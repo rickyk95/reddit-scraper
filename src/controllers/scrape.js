@@ -16,7 +16,7 @@ async function searchThreads(url){
 }    
 module.exports=async(req,res)=>{
     try{
-    // let threads = await searchThreads(req.body.url);
+    let threads = await searchThreads(req.body.url);
     // console.log(req.body.url);
     res.status(200).send('hello there buddy');
     }catch(e){
