@@ -6,7 +6,7 @@ const index = require('../controllers/index');
 const results = require('../controllers/results');
 const scrape = require('../controllers/scrape');
 router.use(express.urlencoded({extended:true}));
-router.use(express.static('public'));
+router.use(express.static('src/public'));
 router.use(bodyParser.json());
 router.get('/',index);
 router.get('/results',results);
