@@ -21,8 +21,11 @@
         request.send(JSON.stringify({url:url}));
         request.onreadystatechange=function(){
             if(this.status === 200){
-               let results = this.responseText;
-               console.log(results,1234567);
+               let results = JSON.parse(this.responseText);
+               results.forEach((result)=>{
+                    console.log(result['link']);
+                    resultsContainer.textContent+=result['link'] + '\n';
+               })
             }
         }
 

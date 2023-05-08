@@ -13,9 +13,8 @@ async function searchThreads(url){
     return elements;
 }    
 module.exports=async(req,res)=>{
-    // let threads = await searchThreads(req.body.url);
-    // console.log(req.body.url);
-    res.status(200).send('Threads');
+    let threads = await searchThreads(req.body.url);
+    console.log(req.body.url);
+    res.status(200).send(threads);
 }
 
-// New comment
