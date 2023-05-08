@@ -22,10 +22,7 @@
         request.onreadystatechange=function(){
             if(this.status === 200){
                let results = JSON.parse(this.responseText);
-               results.forEach((result)=>{
-                    console.log(result['link']);
-                    resultsContainer.textContent+=result['link'] + '\n';
-               })
+               console.log(results,1234567);
             }
         }
 
