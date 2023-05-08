@@ -15,20 +15,27 @@
         let resultsContainer =  document.getElementById('results');
         let urlParams = new URLSearchParams(window.location.search);
         let url = urlParams.get('url');
-        let request = new XMLHttpRequest();
-        request.open('POST','/scrape');
-        request.setRequestHeader('Content-type','application/json');
-        request.send(JSON.stringify({url:url}));
-        request.onreadystatechange=function(){
-            if(this.status === 200){
-               let results = JSON.parse(this.responseText);
-               results.forEach((result)=>{
-                    console.log(result['link']);
-                    resultsContainer.textContent+=result['link'] + '\n';
-               })
+        function createNewRequest(){
+            console.log('New request');
+            let request = new XMLHttpRequest();
+            request.timeout=15000;
+            request.open('POST','/scrape');
+            request.setRequestHeader('Content-type','application/json');
+            request.send(JSON.stringify({url:url}));
+
+            request.onreadystatechange=function(){
+                if(this.status === 200){
+                let results = JSON.parse(this.responseText);
+                results.forEach((result)=>{
+                        console.log(result['link']);
+                        resultsContainer.textContent+=result['link'] + '\n';
+                })
+            }else{
+                createNewRequest();
             }
         }
-
+        }
+        createNewRequest()
     </script>
     </div>
 </body>
