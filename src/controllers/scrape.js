@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 async function searchThreads(url){
-    const browser = await puppeteer.launch({headless:true,args:['--no-sandbox']});
+    const browser = await puppeteer.launch({headless:true});
     const page = await browser.newPage();
     await page.goto(url);
     const elements = await page.$$eval('a.SQnoC3ObvgnGjWt90zD9Z._2INHSNB8V5eaWp4P0rY_mE',(arr)=>{ 
