@@ -1,7 +1,13 @@
 const puppeteer = require('puppeteer');
 async function searchThreads(url){
-    console.log('Calling searchThreads');
-    const browser = await puppeteer.launch({headless:true,args:['--no-sandbox','--disable-setuid-sandbox']});
+     const browserFetcher = puppeteer.createBrowserFetcher();
+      let revisionInfo = await browserFetcher.download('1095492');
+      const browser =await puppeteer.launch({
+          executablePath: revisionInfo.executablePath,
+          ignoreDefaultArgs: ['--disable-extensions'],
+          headless: true,
+          args: ['--no-sandbox', "--disabled-setupid-sandbox"]
+        });
     const page = await browser.newPage();
     await page.goto(url);
     console.log('Just visited URL');
@@ -16,12 +22,10 @@ async function searchThreads(url){
 }
 
 
-
 module.exports=async(req,res)=>{
     try{
     let threads = await searchThreads(req.body.url);
-    // console.log(req.body.url);
-    res.status(200).send('hello there buddy');
+    res.status(200).send(threads);
     }catch(e){
         console.log(e,'error');
     }
