@@ -18,6 +18,8 @@ async function searchThreads(url){
         })
         return links;
     } );
+    await page.close();
+    await browser.close();
     return elements;
 }
 
