@@ -69,3 +69,62 @@ ul{
     font-size:3rem;
 }
 
+#about{
+    display:flex;
+}
+
+.img-container img{
+    width:100%;
+    object-fit:contain;
+}
+.img-container{
+    width:50%;
+}
+
+.text-container{
+    width:50%;
+    padding:40px;
+}
+
+#submit{
+    display:flex;
+    min-height:40vh;
+}
+
+
+
+.steps,.form-container{
+    display:flex;
+    flex-direction:column;
+    width:50%;
+    justify-content:center;
+    align-items:center;
+}
+
+.steps-wrapper{
+    align-items:flex-start;
+}
+
+form{
+    width:100%;
+}
+
+form input{
+    width:100%;
+    margin:1vh 0;
+}
+
+form input[type=submit]{
+    background-color:#ff4501;
+    color:white;
+    font-weight:700;
+    padding:5px 11px;
+    cursor:pointer;
+}
+
+form input[type=submit]:hover{
+    background-color:white;
+    color:#ff4501;
+}
+
+
