@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 async function searchThreads(url){
-    //  const browserFetcher = puppeteer.createBrowserFetcher();
-    //   let revisionInfo = await browserFetcher.download('1095492');
+     const browserFetcher = puppeteer.createBrowserFetcher();
+      let revisionInfo = await browserFetcher.download('1095492');
     const browser =await puppeteer.launch({headless:true });
     const page = await browser.newPage();
     await page.goto(url);
