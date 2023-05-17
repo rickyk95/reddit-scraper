@@ -2,7 +2,12 @@ const puppeteer = require('puppeteer');
 async function searchThreads(url){
      const browserFetcher = puppeteer.createBrowserFetcher();
       let revisionInfo = await browserFetcher.download('1095492');
-    const browser =await puppeteer.launch({headless:true });
+      const browser =await puppeteer.launch({
+          executablePath: revisionInfo.executablePath,
+          ignoreDefaultArgs: ['--disable-extensions'],
+          headless: true,
+          args: ['--no-sandbox', "--disabled-setupid-sandbox"]
+        });
     const page = await browser.newPage();
     await page.goto(url);
     console.log('Just visited URL');
@@ -15,15 +20,14 @@ async function searchThreads(url){
     } );
     await page.close();
     await browser.close();
-    console.log(elements,'these are the elements');
     return elements;
 }
 
 
 module.exports=async(req,res)=>{
     try{
-        let threads = await searchThreads(req.body.url);
-        res.status(200).send(threads);
+    let threads = await searchThreads(req.body.url);
+    res.status(200).send(threads);
     }catch(e){
         console.log(e,'error');
     }
