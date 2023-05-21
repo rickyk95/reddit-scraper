@@ -4,44 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
     <title>Results</title>
 </head>
 <body>
 
     <h1>Scrape Results</h1>
     <div id="results">
-    </div>
-    <div>
-  <canvas id="myChart"></canvas>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+      <div id="container-outer">
+        <div class="container">
+            <div class="title"><h3>Title</h3></div>
+            <div class="reference-number"><h3>Reference Number</h3></div>
+            <div class="score"><h3>Score</h3></div>
+        </div>
+      </div>
+        <div id="my-chart-container">
+          <canvas id="my-chart"></canvas>
+      </div>
+    </div> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-  const ctx = document.getElementById('myChart');
 
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-      datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
 </script>
-
     <script>
-        let resultsContainer =  document.getElementById('results');
+        let containerOuter =  document.getElementById('container-outer');
         let urlParams = new URLSearchParams(window.location.search);
         let url = urlParams.get('url');
         let request = new XMLHttpRequest();
@@ -49,16 +35,85 @@
         request.setRequestHeader('Content-type','application/json');
         request.send(JSON.stringify({url:url}));
 
+
+ 
         request.onreadystatechange=function(){
+
             if(this.status === 200){
                 let results = JSON.parse(this.responseText);
-                results.forEach((result)=>{
-                        console.log(result['link']);
-                        resultsContainer.textContent+=result['link'] + '\n';
+                let referenceNumberLabels = []
+                let data = new Array();
+
+                results.forEach((result,index)=>{
+                        let container = document.createElement('div');
+                        container.classList.add('container');
+
+                        let title = document.createElement('div');
+                        title.classList.add('title');
+
+                        let referenceNumber = document.createElement('div');
+                        referenceNumber.classList.add('reference-number');
+
+                        let score = document.createElement('div');
+                        score.classList.add('score');
+
+                        title.appendChild(document.createTextNode(result['title']));
+                        referenceNumber.appendChild(document.createTextNode(index+1));
+                        score.appendChild(document.createTextNode(result['score']));
+                        container.appendChild(title);
+                        container.appendChild(referenceNumber);
+                        container.appendChild(score);
+                        containerOuter.appendChild(container);
+                        data.push(result['score']);
+                        referenceNumberLabels.push(index+1);
+                        console.log(referenceNumberLabels);
                 })
-                }
+                let myChartContainer = document.querySelector('#my-chart-container');
+
+                myChartContainer.innerHTML='';
+
+                const ctx = document.createElement('canvas');
+                ctx.id='my-chart';
+                myChartContainer.appendChild(ctx);
+
+                 new Chart(ctx, {
+                  type: 'line',
+                  data: {
+                    labels: referenceNumberLabels,
+                    datasets: [{
+                    data,
+                    borderWidth: 1
+                  }]
+                },
+                    options:{
+                      scales:{
+
+                        x:{
+                          display:true,
+                          title:{
+                            display:true,
+                            text:'Reference Number',
+                            color:'green'
+                          }
+                        },  
+
+                        y:{
+                          display:true,
+                          title:{
+                            display:true,
+                            text:'Score',
+                            color:'green'
+                          }
+                        }
+
+                      }
+                    }
+                  }
+  );
+
+
+          }
         }
-        
     </script>
     </div>
 </body>

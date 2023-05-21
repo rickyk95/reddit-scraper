@@ -127,4 +127,46 @@ form input[type=submit]:hover{
     color:#ff4501;
 }
 
+#results{
+    height:70vh;
+    display:flex;
+    overflow-y:scroll;
+    width:100vw;
+    padding:20px;
+    box-sizing:border-box;
+}
+
+
+#my-chart-container{
+    width:45%;
+}
+.container{
+    display:flex;
+    align-items:center;
+    box-shadow:2px 2px 3px black;
+    margin:1vh 0;
+    padding:20px;
+    box-sizing:border-box;
+    min-width:55vw;
+    width:100%;
+}
+
+.container h3{
+    text-align:center;
+}
+
+
+
+
+.container .title{
+    width:75%;
+    text-align:left;
+}
+
+.container .reference-number, .container .score{
+    margin:0 0.5vw;
+    width:11%;
+    text-align:center;
+}
+
 

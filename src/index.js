@@ -12,6 +12,14 @@ app.listen(port,()=>{
         console.log(`Listening on port ${port}`);
 });
 
+const Sentiment = require('sentiment');
+
+var sentiment = new Sentiment();
+
+let score = sentiment.analyze('David Pkaman is awesome and very smart ');
+
+console.log(score);
+
 // async function launchBrowser(){
 //        let browser =  await puppeteer.launch({headless:false});
 //        let page = await browser.newPage();
