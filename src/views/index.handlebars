@@ -5,13 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
+    <script src="https://kit.fontawesome.com/50233981bd.js" crossorigin="anonymous"></script>
     <title>Reddit Scraper</title>
 </head>
 <body>
 <nav>
         <div class="logo-container">
-            <h2>REDDIT SCRAPER</h2>
-            {{!-- <img src="images/reddit-logo.png"> --}}
+            <img src="images/reddit-logo.png">
+            <i class="fa-solid fa-toggle-off"></i>
         </div>
             <div class="nav-items">
                 <ul>
@@ -34,8 +35,12 @@
 
     <section id="about">
         <div class="text-container">
-            <h2>Lorem ipsum dolor sit amet.</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem voluptate commodi fugit obcaecati maxime, illum, minus quae quod facilis saepe eaque ut ratione, quia voluptatibus? Perferendis voluptates enim cum quibusdam maxime recusandae possimus quae nisi corporis, culpa tempora dolores officiis, error impedit rerum facere voluptatem iusto unde! Ea minima facilis delectus suscipit, hic neque impedit quia eligendi natus magnam porro non sunt. Sequi saepe ex corrupti omnis laudantium, voluptas cumque impedit minima earum odio tempore unde temporibus modi iusto architecto porro! Cumque molestias voluptatem laboriosam ut accusantium sint voluptatibus omnis laudantium illo, temporibus ab eveniet doloribus facilis quis sapiente quasi alias eligendi dicta odio ratione expedita quos. Reprehenderit natus odio veniam inventore porro, quidem quisquam nulla ea provident, sapiente a saepe aut est alias nisi cupiditate eius ipsam tenetur quod nihil dolore. Dolores, placeat. Nesciunt quas porro dolorem fugiat est aspernatur, qui voluptates delectus corporis atque totam labore voluptas animi esse, excepturi minima dolores aperiam ratione hic. Officiis, reprehenderit autem. Totam culpa laborum numquam dolor ipsum dolore, dolorum similique modi accusantium voluptate officiis unde aperiam nesciunt dolorem illo, nostrum esse quae dicta architecto voluptatem quibusdam? Deserunt, enim autem. Aspernatur officia, nihil saepe illum maxime ex. Molestiae itaque repellat hic voluptatum!</p>
+            <h2>What is sentiment analysis?</h2>
+            <p>Sentiment analysis, also known as opinion mining, is a computational technique used to determine the sentiment or emotional tone expressed in a piece of text. It involves analyzing and classifying text data to identify the underlying sentiment as positive, negative, or neutral.The primary goal of sentiment analysis is to extract subjective information from text and understand the opinions, attitudes, and emotions of individuals or groups. It is widely applied in various domains, including social media monitoring, customer feedback analysis, market research, brand reputation management, and political analysis.</p>
+            <br>
+            <p>The process of sentiment analysis involves several steps. Firstly, the text is preprocessed by removing noise, such as stopwords and punctuation. Then, the sentiment classification algorithm assigns sentiment scores or labels to the remaining text based on the presence and context of positive or negative words. Some advanced techniques also consider the intensity and polarity of sentiments.
+
+        While sentiment analysis can provide valuable insights into public opinion, it is important to note that it has limitations. The accuracy of sentiment analysis heavily depends on the quality and diversity of the training data, the complexity of language, sarcasm, irony, and cultural nuances. Therefore, it is crucial to continuously refine and update sentiment analysis models to achieve more accurate results.</p>
         </div>
 
         <div class="img-container">
@@ -45,7 +50,7 @@
     </section>
 
 
-    <section id="submit">
+    <section>
          <div class="steps">
             <div class="steps-wrapper">
                 <h2>1. Select the subreddit of your chocie.</h2>
@@ -53,15 +58,19 @@
                 <h2>3. Paste it on the form, and submit!</h2>
             </div>
         </div>
+    </section>
+
+    <section id="try">
         <div class="form-container">
             <h2>Copy a subreddit and submit!</h2>
             <form method="GET" action="/results">
                 <label>URL</label>
-                <input name="url" type="text">
+                <input name="url" type="text" placeholder="Enter url of subreddit you want to analyze">
                 <input type="submit" value="Submit">
             </form>
         </div>
-
     </section>
+
+    <script src="scripts/index.js"></script>
 </body>
 </html>

@@ -3,6 +3,9 @@
     padding:0;
 }
 
+html{
+    scroll-behavior:smooth;
+}
 nav{
     width:100%;
     height:11vh;
@@ -13,6 +16,7 @@ nav{
 }
 .logo-container{
     width:25%;
+    text-align:center;
 }
 .nav-items{
     width:50%;
@@ -56,7 +60,7 @@ ul{
     width:100%;
     height:100%;
     background-color:black;
-    opacity:0.7;
+    opacity:0.4;
 }
 
 #feature-header{
@@ -86,32 +90,48 @@ ul{
     padding:40px;
 }
 
-#submit{
+
+.steps-wrapper{
     display:flex;
-    min-height:40vh;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
 }
 
-
-
+.steps-wrapper h2{
+    margin:1vh 0;
+    background-color:#ff4501;
+    color:white;
+}
 .steps,.form-container{
     display:flex;
     flex-direction:column;
-    width:50%;
+    justify-content:center;
+    align-items:center;
+    padding:10vh 0;
+}
+
+.form-container{
+    width:100%;
+    padding:40px;
+    box-sizing:border-box;
+    background-color:whitesmoke;
+}
+
+
+form{
+    width:100%;
+    display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
 }
 
-.steps-wrapper{
-    align-items:flex-start;
-}
-
-form{
-    width:100%;
-}
-
 form input{
-    width:100%;
+    width:75%;
     margin:1vh 0;
+    padding:5px 20px;
+    box-sizing:border-box;
 }
 
 form input[type=submit]{
@@ -127,6 +147,11 @@ form input[type=submit]:hover{
     color:#ff4501;
 }
 
+form label{
+    display:block;
+    width:75%;
+}
+
 #results{
     height:70vh;
     display:flex;
@@ -135,6 +160,7 @@ form input[type=submit]:hover{
     padding:20px;
     box-sizing:border-box;
 }
+
 
 
 #my-chart-container{
@@ -156,8 +182,6 @@ form input[type=submit]:hover{
 }
 
 
-
-
 .container .title{
     width:75%;
     text-align:left;
@@ -170,3 +194,82 @@ form input[type=submit]:hover{
 }
 
 
+.hide-bar{
+    transform:translateX(-100vw);
+}
+
+.logo-container i {
+    display:none;
+}
+
+@media screen and (max-width:612px){
+
+    .logo-container{
+        position:relative;
+        width:100%;
+        height:100%;
+        justify-content:center;
+    }
+    .logo-container img{
+        position:absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
+    }
+    .logo-container i {
+        display:block;
+        position:absolute;
+        top:50%;
+        transform:translateY(-50%);
+        left:5vw;
+        font-size:7vw;
+    }
+
+    nav{
+        flex-direction:column;
+    }
+    .nav-items{
+        height:0;
+    }
+    .nav-items ul{
+        position:absolute;
+        width:70vw;
+        height:70vh;
+        flex-direction:column;
+        justify-content:unset;
+        align-items:flex-start;
+        background-color:#ff4501;
+        color:white;
+        z-index:1000;
+        left:0;
+        top:0;  
+        padding:20px;
+        margin-top:7vh;
+        transition:all 400ms ease-in-out;
+    }
+
+    .nav-items ul li{
+        margin:1vh 0;
+    }
+
+    .nav-items ul li a {
+        font-size:1.7rem;
+    }
+    #about{
+        flex-direction:column;
+    }
+
+    #about > * {
+        width:100%;
+        box-sizing:border-box;
+    }
+
+    .form-container{
+        height:70vh;
+    }
+    
+    .form-container form label{
+        display:none;
+    }
+  
+}

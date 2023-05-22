@@ -34,11 +34,7 @@
         request.open('POST','/scrape');
         request.setRequestHeader('Content-type','application/json');
         request.send(JSON.stringify({url:url}));
-
-
- 
         request.onreadystatechange=function(){
-
             if(this.status === 200){
                 let results = JSON.parse(this.responseText);
                 let referenceNumberLabels = []
