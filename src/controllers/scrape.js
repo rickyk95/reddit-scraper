@@ -3,16 +3,16 @@ const Sentiment = require('sentiment');
 const sentiment = new Sentiment();
 
 async function searchThreads(url){
-    //  const browserFetcher = puppeteer.createBrowserFetcher();
-    //   let revisionInfo = await browserFetcher.download('1095492');
-    const browser =await puppeteer.launch({});
-
-    // const browser =await puppeteer.launch({
-    //     executablePath: revisionInfo.executablePath,
-    //     ignoreDefaultArgs: ['--disable-extensions'],
-    //     headless: true,
-    //     args: ['--no-sandbox', "--disabled-setupid-sandbox"]
-    //   });
+     const browserFetcher = puppeteer.createBrowserFetcher();
+      let revisionInfo = await browserFetcher.download('1095492');
+      //The below line is for running locally
+    // const browser =await puppeteer.launch({});
+    const browser =await puppeteer.launch({
+        executablePath: revisionInfo.executablePath,
+        ignoreDefaultArgs: ['--disable-extensions'],
+        headless: true,
+        args: ['--no-sandbox', "--disabled-setupid-sandbox"]
+      });
 
     const page = await browser.newPage();
     await page.goto(url);
