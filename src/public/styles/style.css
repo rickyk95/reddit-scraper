@@ -74,6 +74,7 @@ ul{
 }
 
 #about{
+    padding:6.5vh 0;
     display:flex;
 }
 
@@ -100,8 +101,7 @@ ul{
 
 .steps-wrapper h2{
     margin:1vh 0;
-    background-color:#ff4501;
-    color:white;
+    color:#ff4501;
 }
 .steps,.form-container{
     display:flex;
@@ -203,6 +203,10 @@ form label{
 }
 
 @media screen and (max-width:612px){
+
+    #feature{
+        height:100vh;
+    }
 
     .logo-container{
         position:relative;

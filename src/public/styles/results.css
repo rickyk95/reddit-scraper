@@ -1,0 +1,54 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+h1{
+    text-align:center;
+    background-color:#ff4501;
+    color:white;
+    font-weight:700;
+    padding:40px;
+    box-sizing:border-box;
+}
+
+.try-again-container{
+    display:flex;
+    justify-content:flex-end;
+}
+
+.try-again-container a{
+    text-decoration:none;
+    padding:5px 11px;
+    background-color:#ff4501;
+    color:white;
+    margin:0 7vw 0 0;
+}
+
+.try-again-container a:hover{
+    background-color:white;
+    color:#ff4501;
+}
+@media screen and (max-width:612px){
+    #results{
+        flex-direction:column;
+    }
+
+    .container {
+        padding:10px;
+    }
+
+    .container .title{
+        width:50%;
+    }
+
+    .container .reference-number, .container .score{
+        width:25%;
+    }
+
+    
+    #my-chart-container{
+        width:100vw !important;
+        height:100vh !important;
+    }
+}

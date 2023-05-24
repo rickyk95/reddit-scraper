@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/results.css">
     <title>Results</title>
 </head>
 <body>
 
-    <h1>Scrape Results</h1>
+    <h1>Sentiment Analysis Scores</h1>
     <div id="results">
       <div id="container-outer">
         <div class="container">
@@ -22,6 +23,11 @@
           <canvas id="my-chart"></canvas>
       </div>
     </div> 
+
+    <div class="try-again-container">
+        <a href="/">Go Back</a>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 
@@ -77,8 +83,10 @@
                   data: {
                     labels: referenceNumberLabels,
                     datasets: [{
-                    data,
-                    borderWidth: 1
+                      label:'Sentiment Scores',
+                      data,
+                      borderWidth: 1,
+                      borderColor:'#ff4501'
                   }]
                 },
                     options:{
@@ -89,7 +97,7 @@
                           title:{
                             display:true,
                             text:'Reference Number',
-                            color:'green'
+                            color:'#ff4501'
                           }
                         },  
 
@@ -98,7 +106,7 @@
                           title:{
                             display:true,
                             text:'Score',
-                            color:'green'
+                            color:'#ff4501'
                           }
                         }
 
